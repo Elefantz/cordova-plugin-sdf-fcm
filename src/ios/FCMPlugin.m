@@ -6,6 +6,7 @@
 #import <Cordova/CDV.h>
 #import "FCMPlugin.h"
 #import "Firebase.h"
+#import "FirebaseMessaging.h"
 
 @interface FCMPlugin () {}
 @end
