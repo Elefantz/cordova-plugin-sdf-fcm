@@ -57,7 +57,7 @@ static FCMPlugin *fcmPluginInstance;
                                 };
 								 
 								CDVPluginResult* pluginResult = nil;
-								pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:result.token];
+								pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:jsonObject];
 								[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 			}
 		}];
