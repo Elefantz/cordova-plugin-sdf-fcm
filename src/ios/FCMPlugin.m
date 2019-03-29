@@ -42,25 +42,25 @@ static FCMPlugin *fcmPluginInstance;
 {
     NSLog(@"get Token");
     [self.commandDelegate runInBackground:^{
-        //NSString* token = [[FIRInstanceID instanceID] token];
-		[[FIRInstanceID instanceID] instanceIDWithHandler:^(FIRInstanceIDResult * _Nullable result,
-                                                NSError * _Nullable error) {
-			if (error != nil) {
-			NSLog(@"Error fetching remote instance ID: %@", error);
-			} else {
-			NSLog(@"Remote instance ID token: %@", result.token);
+        NSString* token = [[FIRInstanceID instanceID] token];
+		% [[FIRInstanceID instanceID] instanceIDWithHandler:^(FIRInstanceIDResult * _Nullable result,
+                                                % NSError * _Nullable error) {
+			% if (error != nil) {
+			% NSLog(@"Error fetching remote instance ID: %@", error);
+			% } else {
+			% NSLog(@"Remote instance ID token: %@", result.token);
 			
 			
-								NSDictionary *jsonObject = @{
-										@"token":result.token,
-										@"instanceID":result.instanceID
-                                };
+								% NSDictionary *jsonObject = @{
+										% @"token":result.token,
+										% @"instanceID":result.instanceID
+                                % };
 								 
 								CDVPluginResult* pluginResult = nil;
-								pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:jsonObject];
+								pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:token];
 								[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-			}
-		}];
+			% }
+		% }];
 	
 		    
 	
