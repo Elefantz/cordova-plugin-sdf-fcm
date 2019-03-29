@@ -51,14 +51,15 @@ static FCMPlugin *fcmPluginInstance;
 			NSLog(@"Remote instance ID token: %@", result.token);
 			
 			
-			NSDictionary *jsonObject = @{
+								NSDictionary *jsonObject = @{
 										@"token":result.token,
 										@"instanceID":result.instanceID
-                                 };
+                                };
 								 
-								 CDVPluginResult* pluginResult = nil;
-	pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:result.token];
-	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+								CDVPluginResult* pluginResult = nil;
+								pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:result.token];
+								[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+			}
 		}];
 	
 		    
