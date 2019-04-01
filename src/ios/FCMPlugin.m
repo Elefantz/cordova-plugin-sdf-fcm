@@ -42,10 +42,16 @@ static FCMPlugin *fcmPluginInstance;
 {
     NSLog(@"get Token");
     [self.commandDelegate runInBackground:^{
-        NSString* token = [[FIRInstanceID instanceID] token];
-        CDVPluginResult* pluginResult = nil;
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:token];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+        [[FIRInstanceID instanceID] instanceIDWithHandler:^(FIRInstanceIDResult * _Nullable result,
+                                                            NSError * _Nullable error) {
+            CDVPluginResult *pluginResult;
+            if (error) {
+                pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:error.localizedDescription];
+            } else {
+                pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:result.token];
+            }
+            [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+        }];
     }];
 }
 
