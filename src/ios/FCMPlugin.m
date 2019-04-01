@@ -5,7 +5,6 @@
 
 #import <Cordova/CDV.h>
 #import "FCMPlugin.h"
-@import Firebase;
 
 @interface FCMPlugin () {}
 @end
