@@ -100,7 +100,7 @@
 		<header-file src="src/ios/AppDelegate+FCMPlugin.h" />
 		<source-file src="src/ios/AppDelegate+FCMPlugin.m" />
 		
-		<framework src="Firebase" type="git" spec="~> 4.13"/>
+		<framework src="Firebase" type="podspec" spec="~> 4.13"/>
 		
 		<!-- FIREBASE COCOA PODS (not for the moment)-->
 		<!-- <framework src="Firebase/Messaging" type="podspec" spec="~> 0"/> -->
