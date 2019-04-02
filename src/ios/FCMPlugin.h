@@ -1,6 +1,5 @@
 #import <UIKit/UIKit.h>
 #import <Cordova/CDVPlugin.h>
-@import Firebase;
 
 @interface FCMPlugin : CDVPlugin
 {
