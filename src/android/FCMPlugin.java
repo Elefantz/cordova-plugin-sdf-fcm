@@ -53,11 +53,11 @@ public class FCMPlugin extends CordovaPlugin {
 					public void run() {
 						try{
 							String token = FirebaseInstanceId.getInstance().getToken();
-							String instanceID = FirebaseInstanceId.getInstance().getId();
+							/*String instanceID = FirebaseInstanceId.getInstance().getId();
 							JSONObject result = new JSONObject();
 							result.put("token",token);
-							result.put("instanceID",instanceID);
-							callbackContext.success( result );
+							result.put("instanceID",instanceID);*/
+							callbackContext.success( token );
 							Log.d(TAG,"\tToken: "+ token);
 						}catch(Exception e){
 							Log.d(TAG,"\tError retrieving token");
